@@ -19,7 +19,7 @@ class RobotClient:
             self.connected = True
             print(response.text)
 
-    def move_xyz(self, x, y, z):
+    def move_xyz(self, x: object, y: object, z: object) -> object:
         params = {"x": x, "y": y, "z": z}
         url = f"{self.base_url}/move"
         response = requests.get(url, params=params)

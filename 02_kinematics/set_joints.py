@@ -2,18 +2,27 @@ import time
 from client import RobotClient
 
 
-## Conectarse al robot
-
-robot = RobotClient(address="localhost")  # Recuerda usar una dirección válida
+robot = RobotClient(address="192.168.0.13")
 robot.connect()
 
-## Mover el robot (acá va tu código)
+Q0 = 0
+Q1 = 0
+Q2 = 90
 
-HOME_Q0 = 0
-HOME_Q1 = 0
-HOME_Q2 = 90
+robot.set_joints(q0=Q0, q1=Q1, q2=Q2)
 
-robot.set_joints(q0=HOME_Q0, q1=HOME_Q1, q2=HOME_Q2)
-time.sleep(2)
-robot.set_joints(q0=45, q1=30, q2=80)
+def set_origin():
+    robot.set_joints(q0=Q0, q1=Q1, q2=Q2)
+
+def look_up ():
+    robot.set_joints(q0=Q0, q1=Q1, q2=120)
+
+def look_down():
+    robot.set_joints(q0=Q0, q1=-Q1, q2=70)
+
+def rotate_left():
+    robot.set_joints(q0=20, q1=Q1, q2=Q2)
+
+def rotate_right():
+    robot.set_joints(q0=-20, q1=Q1, q2=Q2)
 

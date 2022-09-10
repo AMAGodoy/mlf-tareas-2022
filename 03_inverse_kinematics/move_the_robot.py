@@ -4,8 +4,12 @@ from inverse_kinematics import position_to_dof
 
 
 # Conectarse al robot
-
 r = RobotClient(address="192.168.0.13")
+r.connect()
+r.home()
+
+
+r = RobotClient(address="127.0.0.1")
 r.connect()
 r.home()
 
@@ -26,4 +30,5 @@ time.sleep(1)
 move_robot_to_xyz(r, x=200, y=0, z=180)
 time.sleep(1)
 move_robot_to_xyz(r, x=190, y=0, z=180)
+time.sleep(1)
 time.sleep(1)

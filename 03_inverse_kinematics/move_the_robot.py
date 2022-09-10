@@ -9,10 +9,6 @@ r.connect()
 r.home()
 
 
-r = RobotClient(address="127.0.0.1")
-r.connect()
-r.home()
-
 
 def move_robot_to_xyz(robot, x, y, z):
     """Función para mover el robot usando cartesianas"""
